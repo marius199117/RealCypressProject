@@ -1,10 +1,11 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import Login_Locators from '../../support/login_locators';
+import Login_Locators from '../locators/login_locators';
+import Urls from '../locators/urls';
 const BasePage = require('../../pages/base.page');
 const basePage = new BasePage();
 
-Given(/^I am on the login page$/, () => {
-  basePage.visit('/customer/account/login/referer/aHR0cHM6Ly9tYWdlbnRvLnNvZnR3YXJldGVzdGluZ2JvYXJkLmNvbS8%2C/');
+Given('I am on the {string} page', (url) => {
+  basePage.visit(Urls[url]);
 });
 
 When('I enter {string} data on {string} field', (data, locator) => {
