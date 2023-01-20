@@ -1,16 +1,17 @@
 Feature: Login
 
-Scenario : Succesfull login
+
+Scenario: Succesfull login
     Given I am on the login page 
-    When I enter my email as 'marius@test.com' on 'email' field
-    And I enter my email as 'Marius@test.com!' on 'password' field
+    When I enter 'marius@test.com' data on 'email' field
+    And I enter 'Marius@test.com!' data on 'password' field
     And I click the 'submitButton' button
     Then I verify the validation message "succesfullyLoggedIn"
 
 Scenario: Invalid username and password login
     Given I am on the login page 
-    When I enter my email as 'test' on "email" field
-    And I enter my email as 'test' on 'password' field
+    When I enter 'test' data on "email" field
+    And I enter 'test' data on 'password' field
     And I click the 'submitButton' button
     Then I verify the validation message "invalidLoginCredentials"
 
