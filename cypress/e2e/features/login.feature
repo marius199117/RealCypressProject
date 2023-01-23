@@ -1,6 +1,5 @@
 Feature: Login
 
-
     Scenario: Succesfull login
         Given I am on the 'login' page
         When I enter 'marius@test.com' data on 'email' field
@@ -31,6 +30,4 @@ Feature: Login
             | usernameValue   |  | emailValue |  | passwordValue    |  | passwordValue |  | confirmationMessage     |
             | marius@test.com |  | email      |  | Marius@test.com! |  | password      |  | succesfullyLoggedIn     |
             | test            |  | email      |  | test             |  | password      |  | invalidLoginCredentials |
-
-
 

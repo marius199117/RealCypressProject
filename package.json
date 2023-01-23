@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/cypress-cucumber-preprocessor": "^4.0.1",
     "cypress": "^12.3.0",
     "cypress-cucumber-preprocessor": "^4.3.1",
     "cypress-wait-until": "^1.7.2",
@@ -18,6 +19,6 @@
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
-  "stepDefinitions": "cypress/e2e/scenario_steps"
+    "stepDefinitions": "cypress/e2e/scenario_steps"
   }
 }
