@@ -1,11 +1,13 @@
-import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
+import { Given, When, Then, Before} from 'cypress-cucumber-preprocessor/steps'
 import Login_Locators from '../locators/login_locators';
 import Urls from '../locators/urls';
 const BasePage = require('../base-test/base.page');
 const basePage = new BasePage();
 
+Before(() => {
 Given('I am on the {string} page', (url) => {
   basePage.visit(Urls[url]);
+});
 });
 
 When('I enter {string} data on {string} field', (data, locator) => {
