@@ -1,6 +1,5 @@
 # initial setup when creating this repo
 ```
-npm init -y
 npm install cypress --save-dev
 npx cypress open
 ```
@@ -20,22 +19,36 @@ npx cypress open
 npx cypress run
 ```
 
-# run all tests in a single spec file
+# run all tests in a single spec file headless
 ```
-npx cypress run --spec "cypress/integration/3-page-object-examples/todo-po-class.spec.js"
-```
-
-# run all the feature files
-```
-npx cypress run --spec "cypress/integration/**/*.feature"
+npx cypress run --spec "cypress/e2e/login_locators.js"
 ```
 
+# run all the feature files headless
+```
+npx cypress run --spec "cypress/e2e/**/*.feature"
+```
+# run all tests in a single spec file headless with browser chrome
+```
+npx cypress run --spec "cypress/e2e/login_locators.js --headed --browser chrome"
+```
 
-# Updates made
-The tests in the folders `integration/1-getting-started` and `integration/2-advanced-examples` are automatically created the first time `npx cypress open` is run.
+# run all the feature files headless with browser chrome`
+```
+npx cypress run --spec "cypress/e2e/login_locators.js --headed --browser chrome"
+```
 
-I've added new folders and exampled:
-1. integration/3-page-object-examples: added a new page object class and created `todo-new.po-class-spec.js` to demonstrate how to use page objects in a test spec.
+# run all tests by tags 
+```
+npx cypress run --env tags="@Regression" --headed --browser chrome
+```
 
-2. integration/4-cucumber-examples: converted the tests from the /1-getting-started folder to feature files (and leverage page objects).  Most of this is based on https://github.com/TheBrainFamily/cypress-cucumber-example.git and https://www.npmjs.com/package/cypress-cucumber-preprocessor'  
-(branch: 04-cucumber-examples)
+# run all tests in cypress cloud ex. 
+```
+npx cypress run --spec cypress npx cypress run --record --key a24ad739-9e52-495c-9468-ad905acc104c --spec cypress/e2e/login_locators.js --headed --browser chrome   
+```
+
+# record tests
+```
+cypress run –record –key
+```
