@@ -1,10 +1,10 @@
 class BasePage {
-  constructor() {
-    this.baseUrl = 'https://magento.softwaretestingboard.com';
-  }
+  // constructor() {
+  //   this.baseUrl = 'https://magento.softwaretestingboard.com';
+  // }
 
   visit(path) {
-    cy.visit(`${this.baseUrl}${path}`);
+    cy.visit(path);
   }
 
   click(locator) {

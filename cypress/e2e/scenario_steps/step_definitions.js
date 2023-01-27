@@ -1,6 +1,7 @@
 import { Given, When, Then, Before } from 'cypress-cucumber-preprocessor/steps'
 import Login_Locators from '../locators/login_locators';
 import Urls from '../locators/urls';
+import API_Data from '../locators/api_data';
 const BasePage = require('../base-test/base.page');
 const basePage = new BasePage();
 
@@ -11,7 +12,7 @@ Before(() => {
 });
 
 Given('the API {string} is available', (endpoint) => {
-  cy.visit(Urls[endpoint])
+  basePage.visit(API_Data[endpoint])
 })
 
 When('I enter {string} data on {string} field', (data, locator) => {
@@ -19,7 +20,7 @@ When('I enter {string} data on {string} field', (data, locator) => {
 });
 
 When('I send a {string} request to the {string} with id {string} with body {string}', (request_type, endpoint, id, body) => {
-  basePage.sendRequest(request_type, endpoint, id, body)
+  basePage.sendRequest(request_type, endpoint, id, API_Data[body])
 });
 
 

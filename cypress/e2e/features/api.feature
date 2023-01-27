@@ -10,9 +10,9 @@ Feature: Test API endpoint
 
 
         Examples:
-            | request_type |  | endpoint    | id |  | body                                              | status_code |  | applicationJson                 |
-            | GET          |  | /api/users/ | 2  |  |                                                   | 200         |  | application/json; charset=utf-8 |
-            | POST         |  | /api/users/ |    |  | {\"name\":\"morpheus\",\"job\":\"zion resident\"} | 201         |  | application/json; charset=utf-8 |
-            | PUT          |  | /api/users/ | 2  |  | {\"name\":\"morpheus\",\"job\":\"zion resident\"} | 200         |  | application/json; charset=utf-8 |
-            | PATCH        |  | /api/users/ | 2  |  | {\"name\":\"morpheus\",\"job\":\"zion resident\"} | 200         |  | application/json; charset=utf-8 |
-            | DELETE       |  | /api/users/ | 2  |  |                                                   | 204         |  | undefined                       |
+            | request_type |  | endpoint    | id |  | body_name_job | status_code |  | applicationJson                 |
+            | GET          |  | /api/users/ | 2  |  |               | 200         |  | application/json; charset=utf-8 |
+            | POST         |  | /api/users/ |    |  | body_name_job | 201         |  | application/json; charset=utf-8 |
+            | PUT          |  | /api/users/ | 2  |  | body_name_job | 200         |  | application/json; charset=utf-8 |
+            | PATCH        |  | /api/users/ | 2  |  | body_name_job | 200         |  | application/json; charset=utf-8 |
+            | DELETE       |  | /api/users/ | 2  |  |               | 204         |  | undefined                       |
