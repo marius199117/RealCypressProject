@@ -10,7 +10,7 @@ Feature: Test API endpoint
 
 
         Examples:
-            | request_type |  | endpoint    | id |  | body_name_job | status_code |  | applicationJson                 |
+            | request_type |  | endpoint    | id |  | body          | status_code |  | applicationJson                 |
             | GET          |  | /api/users/ | 2  |  |               | 200         |  | application/json; charset=utf-8 |
             | POST         |  | /api/users/ |    |  | body_name_job | 201         |  | application/json; charset=utf-8 |
             | PUT          |  | /api/users/ | 2  |  | body_name_job | 200         |  | application/json; charset=utf-8 |
