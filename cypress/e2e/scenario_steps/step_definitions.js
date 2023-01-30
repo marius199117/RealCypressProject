@@ -20,7 +20,7 @@ When('I enter {string} data on {string} field', (data, locator) => {
 });
 
 When('I send a {string} request to the {string} with id {string} with body {string}', (request_type, endpoint, id, body) => {
-  basePage.sendRequest(request_type, endpoint, id, API_Data[body])
+  basePage.sendRequest(request_type, endpoint, id, body)
 });
 
 
