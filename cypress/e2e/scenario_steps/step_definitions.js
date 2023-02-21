@@ -40,6 +40,6 @@ Then('the response should contain a matched {string} Json', (matchString) => {
 })
 
 Then('the {string} should have a property {string} with value {string}', (responseBody, property, value) => {
-  basePage.verifyDataProperty(responseBody, property, value)
+  basePage.verifyResponse(responseBody, property, value)
 })
 
