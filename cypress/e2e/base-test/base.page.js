@@ -75,7 +75,7 @@ class BasePage {
     })
   }
 
-  verifyDataProperty(responseBody, property, value) {
+  verifyResponse(responseBody, property, value) {
     switch (responseBody) {
       case 'responseBodyProperty':
         cy.get('@response').then((response) => {
