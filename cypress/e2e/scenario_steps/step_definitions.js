@@ -23,7 +23,6 @@ When('I send a {string} request to the {string} with id {string} with body {stri
   basePage.sendRequest(request_type, endpoint, id, body)
 });
 
-
 And('I click the {string} button', (locator) => {
   basePage.click(Login_Locators[locator])
 });
@@ -36,7 +35,11 @@ Then('the response should have a status code of {string}', (status_code) => {
   basePage.verifyStatusCode(status_code)
 });
 
-Then('the response should contain a matched {string} JSON', (matchString) => {
+Then('the response should contain a matched {string} Json', (matchString) => {
   basePage.containsMatchedJson(matchString)
+})
+
+Then('the {string} should have a property {string} with value {string}', (responseBody, property, value) => {
+  basePage.verifyDataProperty(responseBody, property, value)
 })
 

@@ -8,7 +8,7 @@ class BasePage {
   }
 
   click(locator) {
-    cy.get(locator).click();
+    cy.get(locator).should('be.visible').click();
   }
 
   type(locator, text) {
@@ -35,21 +35,21 @@ class BasePage {
         cy.request({
           method: 'POST',
           url: `${endpoint}`,
-          body: `${body}`,
+          body: JSON.parse(body),
         }).as('response');
         break;
       case 'PUT':
         cy.request({
           method: 'PUT',
           url: `${endpoint}${id}`,
-          body: `${body}`,
+          body: JSON.parse(body),
         }).as('response');
         break;
       case 'PATCH':
         cy.request({
           method: 'PATCH',
           url: `${endpoint}${id}`,
-          body: `${body}`,
+          body: JSON.parse(body),
         }).as('response');
         break;
       case 'DELETE':
@@ -74,6 +74,20 @@ class BasePage {
       expect(response.headers['content-type']).to.match(new RegExp(matchString));
     })
   }
+
+  verifyDataProperty(responseBody, property, value) {
+    switch (responseBody) {
+      case 'responseBodyProperty':
+        cy.get('@response').then((response) => {
+          expect(response.body).to.have.property(property, value);
+        });
+        break;
+      case 'responseBodyData':
+        cy.get('@response').then((response) => {
+          expect(response.body.data).to.have.property(property, parseInt(value));
+        });
+        break;
+    }
+  }
 }
-  
-  module.exports = BasePage;
+module.exports = BasePage;

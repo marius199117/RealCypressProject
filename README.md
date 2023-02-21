@@ -1,7 +1,6 @@
 # initial setup when creating this repo
 ```
 npm install cypress --save-dev
-npx cypress open
 ```
 
 # setup after cloning this repo
