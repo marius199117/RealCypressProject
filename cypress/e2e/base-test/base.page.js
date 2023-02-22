@@ -4,19 +4,19 @@ class BasePage {
   // }
 
   visit(path) {
-    cy.visit(path);
+    cy.visit(path)
   }
 
   click(locator) {
-    cy.get(locator).should('be.visible').click();
+    cy.get(locator).should('be.visible').click()
   }
 
   addTextToField(locator, text) {
-    cy.get(locator).clear().type(text).should('have.value', text);
+    cy.get(locator).clear().type(text).should('have.value', text)
   }
 
   succesfullMessage(locator) {
-    cy.get(locator).should('be.visible')
+    cy.get(locator).should('be.visible');
   }
 
   sendRequest(request_type, endpoint, id, body) {
@@ -25,29 +25,29 @@ class BasePage {
         cy.request({
           method: 'GET',
           url: `${endpoint}${id}`,
-        }).as('response');
-        break;
+        }).as('response')
+        break
       case 'POST':
         cy.request({
           method: 'POST',
           url: `${endpoint}`,
           body: JSON.parse(body),
-        }).as('response');
-        break;
+        }).as('response')
+        break
       case 'PUT':
         cy.request({
           method: 'PUT',
           url: `${endpoint}${id}`,
           body: JSON.parse(body),
-        }).as('response');
-        break;
+        }).as('response')
+        break
       case 'PATCH':
         cy.request({
           method: 'PATCH',
           url: `${endpoint}${id}`,
           body: JSON.parse(body),
-        }).as('response');
-        break;
+        }).as('response')
+        break
       case 'DELETE':
         cy.request({
           method: 'DELETE',
@@ -67,7 +67,7 @@ class BasePage {
 
   verifyContentType(matchString) {
     cy.get('@response').then((response) => {
-      expect(response.headers['content-type']).to.match(new RegExp(matchString));
+      expect(response.headers['content-type']).to.match(new RegExp(matchString))
     })
   }
 
@@ -75,19 +75,19 @@ class BasePage {
     switch (responseBody) {
       case 'responseBodyProperty':
         cy.get('@response').then((response) => {
-          expect(response.body).to.have.property(property, value);
-        });
-        break;
+          expect(response.body).to.have.property(property, value)
+        })
+        break
       case 'responseBodyWithoutProperty':
         cy.get('@response').then((response) => {
-          expect(response.body).to.have.not.property(property, value);
-        });
-        break;
+          expect(response.body).to.have.be.empty
+        })
+        break
       case 'responseBodyData':
         cy.get('@response').then((response) => {
-          expect(response.body.data).to.have.property(property, parseInt(value));
-        });
-        break;
+          expect(response.body.data).to.have.property(property, parseInt(value))
+        })
+        break
       default:
         throw new Error('Invalid request response')
     }
