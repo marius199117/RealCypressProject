@@ -11,12 +11,8 @@ class BasePage {
     cy.get(locator).should('be.visible').click();
   }
 
-  type(locator, text) {
-    cy.get(locator).type(text);
-  }
-
-  fillForm(locator, text) {
-    cy.get(locator).clear().type(text);
+  addTextToField(locator, text) {
+    cy.get(locator).clear().type(text).should('have.value', text);
   }
 
   succesfullMessage(locator) {
@@ -69,7 +65,7 @@ class BasePage {
     })
   }
 
-  containsMatchedJson(matchString) {
+  verifyContentType(matchString) {
     cy.get('@response').then((response) => {
       expect(response.headers['content-type']).to.match(new RegExp(matchString));
     })
@@ -82,11 +78,18 @@ class BasePage {
           expect(response.body).to.have.property(property, value);
         });
         break;
+      case 'responseBodyWithoutProperty':
+        cy.get('@response').then((response) => {
+          expect(response.body).to.have.not.property(property, value);
+        });
+        break;
       case 'responseBodyData':
         cy.get('@response').then((response) => {
           expect(response.body.data).to.have.property(property, parseInt(value));
         });
         break;
+      default:
+        throw new Error('Invalid request response')
     }
   }
 }

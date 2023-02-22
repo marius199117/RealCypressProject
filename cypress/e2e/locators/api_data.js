@@ -1,5 +1,3 @@
-class API_Data {
-    get apiEndpoint() {return 'https://reqres.in'}
-}
-
-export default new API_Data()
+export const apiEndpoint = 'https://reqres.in'
+// export const expectedResponse = 
+//     {"name":"morpheus","job":"leader"}

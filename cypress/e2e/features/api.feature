@@ -10,9 +10,9 @@ Feature: Test API endpoint
         And the '<responseBody>' should have a property '<property>' with value '<value>'
 
         Examples:
-            | request_type |  | endpoint    |  | id |  | body                                              | status_code |  | applicationJson  |  | responseBody         |  | property |  | value         |
-            | GET          |  | /api/users/ |  | 2  |  |                                                   | 200         |  | application/json |  | responseBodyData     |  | id       |  | 2             |
-            | POST         |  | /api/users/ |  |    |  | {\"name\":\"morpheus\",\"job\":\"leader\"}        | 201         |  | application/json |  | responseBodyProperty |  | name     |  | morpheus      |
-            | PUT          |  | /api/users/ |  | 2  |  | {\"name\":\"morpheus\",\"job\":\"zion resident\"} | 200         |  | application/json |  | responseBodyProperty |  | job      |  | zion resident |
-            | PATCH        |  | /api/users/ |  | 2  |  | {\"name\":\"morpheus\",\"job\":\"zion resident\"} | 200         |  | application/json |  | responseBodyProperty |  | name     |  | morpheus      |
-            | DELETE       |  | /api/users/ |  | 2  |  |                                                   | 204         |  | undefined        |  |                      |  |          |  |               |
+            | request_type |  | endpoint    |  | id |  | body                                               | status_code |  | applicationJson  |  | responseBody                |  | property |  | value         |
+            | GET          |  | /api/users/ |  | 2  |  |                                                    | 200         |  | application/json |  | responseBodyData            |  | id       |  | 2             |
+            | POST         |  | /api/users/ |  |    |  | {\"name\":\"marius\",\"job\":\"lead\"}             | 201         |  | application/json |  | responseBodyProperty        |  | name     |  | marius        |
+            | PUT          |  | /api/users/ |  | 2  |  | {\"name\":\"marius\",\"job\":\"zion resident\"}    | 200         |  | application/json |  | responseBodyProperty        |  | job      |  | zion resident |
+            | PATCH        |  | /api/users/ |  | 2  |  | {\"name\":\"marius123\",\"job\":\"zion resident\"} | 200         |  | application/json |  | responseBodyProperty        |  | name     |  | marius123     |
+            | DELETE       |  | /api/users/ |  | 2  |  | {\"name\":\"marius123\",\"job\":\"zion resident\"} | 204         |  | undefined        |  | responseBodyWithoutProperty |  |          |  |               |
