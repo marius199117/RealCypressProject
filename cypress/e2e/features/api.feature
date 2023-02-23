@@ -9,6 +9,7 @@ Feature: Test API endpoint
         And the response should contain a matched '<applicationJson>' Json
         And the '<responseBody>' should have a property '<property>' with value '<value>'
 
+
         Examples:
             | request_type |  | endpoint    |  | id |  | body                                               | status_code |  | applicationJson  |  | responseBody                |  | property |  | value         |
             | GET          |  | /api/users/ |  | 2  |  |                                                    | 200         |  | application/json |  | responseBodyData            |  | id       |  | 2             |

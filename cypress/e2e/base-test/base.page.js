@@ -71,21 +71,24 @@ class BasePage {
     })
   }
 
-  verifyResponse(responseBody, property, value) {
+  verifyResponse(responseBody, propertyName, propertyValue) {
     switch (responseBody) {
       case 'responseBodyProperty':
         cy.get('@response').then((response) => {
-          expect(response.body).to.have.property(property, value)
+          const responseBody = JSON.stringify(response.body)
+          expect(responseBody).to.include(`"${propertyName}":"${propertyValue}"`)
         })
         break
       case 'responseBodyWithoutProperty':
         cy.get('@response').then((response) => {
-          expect(response.body).to.have.be.empty
+          expect(response.body).to.be.empty
         })
         break
       case 'responseBodyData':
         cy.get('@response').then((response) => {
-          expect(response.body.data).to.have.property(property, parseInt(value))
+          const responseBodyData = JSON.stringify(response.body.data)
+          const parsedPropertyValue = parseInt(propertyValue)
+          expect(responseBodyData).to.include(`"${propertyName}":${parsedPropertyValue}`)
         })
         break
       default:
