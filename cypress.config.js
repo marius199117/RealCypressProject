@@ -1,4 +1,5 @@
 const { defineConfig } = require('cypress')
+const cucumber = require('cypress-cucumber-preprocessor').default;
 
 module.exports = defineConfig({
   chromeWebSecurity: false,
@@ -12,7 +13,8 @@ module.exports = defineConfig({
       });
     },
     setupNodeEvents(on, config) {
-      return require('./cypress/plugins/index.js')(on, config)
+      on('file:preprocessor', cucumber());
+      return {on, config}
     },
     specPattern: 'cypress/e2e/**/*.{feature,features,spec.js,cy.js}'
   },
