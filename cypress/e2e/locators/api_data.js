@@ -1,1 +1,1 @@
-export const apiEndpoint = 'https://reqres.in'
+export const apiEndpoint = 'https://jsonplaceholder.typicode.com'

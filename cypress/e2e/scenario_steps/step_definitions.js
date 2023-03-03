@@ -19,8 +19,8 @@ When('I enter {string} data on {string} field', (data, locator) => {
   basePage.addTextToField(locators[locator], data)
 });
 
-When('I send a {string} request to the {string} with id {string} with body {string}', (request_type, endpoint, id, body) => {
-  basePage.sendRequest(request_type, endpoint, id, body)
+When('I send a {string} request to the {string} with body {string}', (request_type, endpoint, body) => {
+  basePage.sendRequest(request_type, endpoint, body)
 });
 
 And('I click the {string} button', (locator) => {
@@ -43,5 +43,8 @@ Then('the {string} should have a property {string} with value {string}', (respon
   basePage.verifyResponse(responseBody, property, value)
 })
 
+Then('verify response body {string}', (body) => {
+  basePage.response(body)
+})
 
 

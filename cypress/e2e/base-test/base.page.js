@@ -19,39 +19,39 @@ class BasePage {
     cy.get(locator).should('be.visible');
   }
 
-  sendRequest(request_type, endpoint, id, body) {
+  sendRequest(request_type, endpoint, body) {
     switch (request_type) {
       case 'GET':
         cy.request({
           method: 'GET',
-          url: `${endpoint}${id}`,
+          url: endpoint,
         }).as('response')
         break
       case 'POST':
         cy.request({
           method: 'POST',
-          url: `${endpoint}`,
+          url: endpoint,
           body: JSON.parse(body),
         }).as('response')
         break
       case 'PUT':
         cy.request({
           method: 'PUT',
-          url: `${endpoint}${id}`,
+          url: endpoint,
           body: JSON.parse(body),
         }).as('response')
         break
       case 'PATCH':
         cy.request({
           method: 'PATCH',
-          url: `${endpoint}${id}`,
+          url: endpoint,
           body: JSON.parse(body),
         }).as('response')
         break
       case 'DELETE':
         cy.request({
           method: 'DELETE',
-          url: `${endpoint}${id}`,
+          url: endpoint,
         }).as('response');
         break;
       default:
@@ -94,6 +94,12 @@ class BasePage {
       default:
         throw new Error('Invalid request response')
     }
+  }
+
+  response(body) {
+    cy.get('@response').then((response) => {
+      expect(response.body).to.deep.equal(JSON.parse(body))
+    })
   }
 }
 module.exports = BasePage;
