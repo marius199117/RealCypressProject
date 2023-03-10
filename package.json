@@ -19,6 +19,6 @@
   },
   "cypress-cucumber-preprocessor": {
     "nonGlobalStepDefinitions": false,
-    "stepDefinitions": "cypress/e2e/scenario_steps"
+    "stepDefinitions": "cypress/e2e/**/*scenario_steps"
   }
 }

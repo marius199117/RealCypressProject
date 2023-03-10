@@ -1,6 +1,0 @@
-export const email = '#email'
-export const password = '#pass'
-export const submitButton = '.login-container > .block-customer-login > .block-content > #login-form > .fieldset > .actions-toolbar > div.primary > #send2 > span'
-export const succesfullyLoggedIn = ':nth-child(2) > .greet > .not-logged-in'
-export const invalidLoginCredentials = '#email-error'
-export const invalidUsernamePasswordMessage = '.message-error > div' 
